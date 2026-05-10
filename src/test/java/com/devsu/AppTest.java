@@ -1,12 +1,12 @@
 package com.devsu;
 
-import static org.junit.Assert.assertTrue;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import org.junit.Test;
-
+@SpringBootTest
 public class AppTest {
-  @Test
-  public void shouldAnswerWithTrue() {
-    assertTrue(true);
-  }
+
+    @Test
+    void contextLoads() {
+    }
 }
