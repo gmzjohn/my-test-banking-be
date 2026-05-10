@@ -31,13 +31,13 @@ public class MovementController {
     }
 
     @PostMapping
-    public ResponseEntity<Movement> create(@RequestBody Movement movement) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(movementService.create(movement));
+    public ResponseEntity<Movement> create(@RequestBody Movement movement, @RequestParam Long accountId) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(movementService.create(movement, accountId));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Movement> update(@PathVariable Long id, @RequestBody Movement movement) {
-        return movementService.update(id, movement)
+    public ResponseEntity<Movement> update(@PathVariable Long id, @RequestBody Movement movement, @RequestParam Long accountId) {
+        return movementService.update(id, movement, accountId)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }

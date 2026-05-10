@@ -31,13 +31,13 @@ public class AccountController {
     }
 
     @PostMapping
-    public ResponseEntity<Account> create(@RequestBody Account account) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(accountService.create(account));
+    public ResponseEntity<Account> create(@RequestBody Account account, @RequestParam Long clientId) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(accountService.create(account, clientId));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Account> update(@PathVariable Long id, @RequestBody Account account) {
-        return accountService.update(id, account)
+    public ResponseEntity<Account> update(@PathVariable Long id, @RequestBody Account account, @RequestParam Long clientId) {
+        return accountService.update(id, account, clientId)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }

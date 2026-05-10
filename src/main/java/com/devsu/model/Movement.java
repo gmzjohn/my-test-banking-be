@@ -2,10 +2,14 @@ package com.devsu.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "movements")
@@ -27,14 +31,20 @@ public class Movement {
     @Column(nullable = false)
     private Double balance;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "account_id", nullable = false)
+    @JsonBackReference("account-movements")
+    private Account account;
+
     public Movement() {}
 
-    public Movement(Long id, String date, String movementType, Double amount, Double balance) {
+    public Movement(Long id, String date, String movementType, Double amount, Double balance, Account account) {
         this.id = id;
         this.date = date;
         this.movementType = movementType;
         this.amount = amount;
         this.balance = balance;
+        this.account = account;
     }
 
     public Long getId() { return id; }
@@ -51,4 +61,9 @@ public class Movement {
 
     public Double getBalance() { return balance; }
     public void setBalance(Double balance) { this.balance = balance; }
+
+    public Account getAccount() { return account; }
+    public void setAccount(Account account) { this.account = account; }
+
+    public Long getAccountId() { return account != null ? account.getId() : null; }
 }
