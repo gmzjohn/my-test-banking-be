@@ -1,7 +1,5 @@
 # Test Devsu Backend
 
-![Podman](https://img.shields.io/badge/Podman-892CA0?style=for-the-badge&logo=podman&logoColor=white)
-
 Welcome to the **Test Devsu Backend**. This repository contains the backend services for the Test Devsu UI, built with **Java**.
 
 ## 🚀 Getting Started
