@@ -1,6 +1,6 @@
-# Test Devsu Backend
+# Banking App Backend
 
-Welcome to the **Test Devsu Backend**. This repository contains the backend services for the Test Devsu UI, built with **Java**.
+Welcome to the **Banking App Backend**. This repository contains the backend services for the Test Devsu UI, built with **Java**.
 
 ## 🚀 Getting Started
 
